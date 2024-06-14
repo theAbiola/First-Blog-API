@@ -81,6 +81,7 @@ app.patch("/posts/:id", (req, res) => {
     author: req.body.author || existingPost.author,
     date: new Date(),
   }
+  // replace existing post with post update
   existingPost = updatePost;
   res.json(updatePost);
 })
