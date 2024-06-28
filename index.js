@@ -49,6 +49,7 @@ app.get("/posts", (req,res) => {
 app.get("/posts/:id", (req,res) => {
   const idOfPost =  parseInt(req.params.id);
   const foundPost = posts.find((post) => post.id === idOfPost );
+  //here we handle an edge case where the post that the user wishes to find isn't found.
   if (!foundPost) return res.status(404).json({ message: "Post not found" });
   console.log(foundPost);
   res.json(foundPost);
